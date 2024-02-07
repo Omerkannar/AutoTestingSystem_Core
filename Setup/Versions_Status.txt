@@ -1,0 +1,1 @@
+Version:===============Ownship:    	    ATH FATSE Version:         6.8.5.150DBSim Version:      3.3.23.0SimCore Version:    7.0.20.0CGF:            	6.8.5.151IG:                 5.8CLS:                FATMotion:             FATVibration:          FATLHD Package:    	W_AW119KX_LAB-0.13_IC11S10AutoTest:       	2.0.1

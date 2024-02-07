@@ -1,0 +1,60 @@
+# snap point diminution f5
+0 	<-TopLeft_X 
+90 	<-TopLeft_Y
+1860  	<-ButtomRight_X
+950 	<-ButtomRight_Y
+
+
+#files name and path
+C:/FileServer/D/ATH-AutoTestingSystem/AutoTestingSystem_Core/Tests                      <-parent directory tests
+D:/ATH-AutoTestingSystem/AutoTestingSystem_Backend/Results/                    <-parent directory results
+D:/ATH-AutoTestingSystem/AutoTestingSystem_Backend/Setup/Setting.txt                 <-setting
+D:/ATH-AutoTestingSystem/AutoTestingSystem_Backend/Tests/TestList.txt          <-test list
+D:/ATH-AutoTestingSystem/AutoTestingSystem_Backend/Results/GeneralResault.txt  <-general result
+C:/FileServer/D/ATH-AutoTestingSystem/AutoTestingSystem_Core/Setup/Versions_Status.txt         <-version Status
+D:/ATH-AutoTestingSystem/AutoTestingSystem_Backend/Setup/Status_Window.txt           <-Notifile Status
+D:/ATH-AutoTestingSystem/AutoTestingSystem_Backend/Setup/RSN.txt           <-Random String Name for IOS scenario name
+D:/ATH-AutoTestingSystem/AutoTestingSystem_Backend/Code/MainAutoTest.py           <-scriptPath not for the WEB
+# Status Window diminution and location
+0       <-TopRightScreentlocation_X
+-50     <-TopRightScreentlocation_Y
+600     <-WindowWidth
+120    <-WindowHeight
+
+
+# diffrence to define fail 
+diffrence_static 5000
+diffrence_dynamic 10000
+diffrence_extreme 40000
+
+
+# vaule to scale  
+progressBar_Timing 100 <-the velocity of the progress bar
+Scroll_value 150 <-sensitivity and direction of the mouse scroll command
+
+
+# Setup address for app 
+https://www.google.com/maps/@33.0869369,-96.7601066,15z?entry=ttu       <-http://192.168.18.153:8000/webios/_/site-management/scenarios      <-For Env 1 192.168.18.153:8000 for Env 2 Env 1 192.168.18.200:8000
+D:\ATH-AutoTestingSystem\AutoTestingSystem_Backend\Code\chromedriver\chromedriver.exe          <-location of the chrome driver
+C:\Program Files\Google\Chrome\Application\chrome.exe          <-location of the chrome
+# scale for the image threshold  in the greyscale images compare
+150 <-scale
+
+# Doc folder path
+D:\ATH-AutoTestingSystem\AutoTestingSystem_Backend\Doc                        <-parent directory Doc
+
+
+# the cutting point for the new image in the compare procedure
+100 	<-f6_TopLeft_X
+100 	<-f6_TopLeft_Y
+100  	<-f6_ButtomRight_X
+100 	<-f6_ButtomRight_Y
+
+# "F" botton IPS
+192.168.18.105    	<-F7 - CGF1
+192.168.60.22    	<-F8 - TC
+192.168.18.108    	<-F9 - Own1
+
+C:\Program Files\Microsoft Office\root\Office16\WINWORD.exe       <-word app path
+
+0.8     <- 80% of similarity between the picture

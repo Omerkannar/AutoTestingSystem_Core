@@ -55,37 +55,7 @@ class KeyboardUtils:
             Utils.take_snapshot(stepImageName, GlobalVariables.top_left_x, GlobalVariables.top_left_y,
                                 GlobalVariables.bottom_right_x, GlobalVariables.bottom_right_y, StepImageNumber)
             self.set_file_image_number(self.get_file_image_number() + 1)
-            #
-            # time.sleep(0.1)  # wait for the snppoint image to end before continue
-            # GlobalVariables.toRec = 0
-            # time_start_gui = time.time()
-            # if not GlobalVariables.Web_GUI:
-            #     stepProcess, stepResult, stepComment, Critic = DataWindow.getinput(self.test_log, ATPfile, CommentFile,
-            #                                                                        fileNameImage, test_name,
-            #                                                                        fileNameImage_number)
-            # else:
-            #     WEB_Income_data = "D:\ATH-AutoTestingSystem\AutoTestingSystem_TempData\Income_data.ini"
-            #     WEB_Step_data = "D:\ATH-AutoTestingSystem\AutoTestingSystem_TempData\Step_data.ini"
-            #     Util.replace_line(WEB_Income_data, 5, "CreateStep   		=1")
-            #     CreateStep = "1"
-            #     while CreateStep == "1":
-            #         time.sleep(1)
-            #         with open(WEB_Income_data, "r") as ID:  # open the Income data for decide what to do
-            #             Lines = ID.readlines()
-            #             CreateStep = Lines[4].split("=")[-1][:-1]
-            #             # ChromeIssue.OpenSite("http://127.0.0.1:5000/docs")
-            #             print("here we should deal with the step data")
-            #
-            #     if CreateStep == "0":
-            #         with open(WEB_Step_data, "r") as SD:  # open the Income data for decide what to do
-            #             Lines = SD.readlines()
-            #             stepProcess = Lines[1].split("=")[-1][:-1]
-            #             stepResult = Lines[2].split("=")[-1][:-1]
-            #             stepComment = Lines[3].split("=")[-1][:-1]
-            #             Critic = Lines[4].split("=")[-1][:-1]
-            #             fileNameImagenum = fileNameImage + "_step_" + str(fileNameImage_number)
-            #             DataWindow.UpdateATP(ATPfile, stepProcess, stepResult, fileNameImage_number, fileNameImagenum)
-            #
+
             # DataWindow.UpdateLog(TestLog, Critic, stepProcess)
             # time.sleep(0.5)  # wait for the user form to close before continue
             # timeoutofgui = time.time()
@@ -120,7 +90,6 @@ class KeyboardUtils:
             Listener.listener_keyboard_press(a, self.test_log)
             Utils.alt_Tab()
 
-        # TODO omer kannar
         # step 2
         elif key == Key.esc:
             a = format(key)
@@ -128,28 +97,9 @@ class KeyboardUtils:
             GlobalVariables.test_time = time.time() - GlobalVariables.start_time
             GlobalVariables.terminate = 1
             Utils.close_Notification()
+            # self.test_log.writelines("close the file")
             Listener.close_file(self.test_log)
-            # TestLog.writelines("close the file")
-            # M_listener.stop()
-            # K_listener.stop()
-            # TestLog.close()
-            # ATPfile.close()
-            # CommentFile.close()
-            # GlobalVariables.test_time = time.time() - GlobalVariables.start_time
-            # GlobalVariables.terminate = 1
-            # # TestLog.writelines("close the file")
-            # # M_listener.stop()
-            # # K_listener.stop()
-            # # TestLog.close()
-            # # ATPfile.close()
-            # # CommentFile.close()
-            # Utils.close_Notification()
-            # Listener.close_file(self.test_log)
-            # go_2desktop()
-            # if GlobalVariables.Web_GUI == False:
-            #     runMainAutoScript()
 
-            # return False
         # step3
         else:
             if GlobalVariables.toRec == 1:

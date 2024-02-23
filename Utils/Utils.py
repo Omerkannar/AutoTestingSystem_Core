@@ -6,6 +6,8 @@ import re
 import sys
 import time
 from tkinter import Tk, Label
+
+import pyautogui
 import pygetwindow
 
 
@@ -232,3 +234,66 @@ def kill_Process():
     GlobalVariables.stop_flag = True
     # pyautogui.press('esc')
     sys.exit()
+
+
+# input:
+#   FP = string - filename(path for the test name)
+#   TLX = integer - top left x value of the snapping image
+#   TLY = integer - top left Y value of the snapping image
+#   BRX = integer - bottom right  x value of the snapping image
+#   TLX = integer - bottom right y value of the snapping image
+#   FNIN = integer - number of picture in the test
+# what does it do: save the snapshot picture in the proper directory
+# output: none
+def take_snapshot(FP, TLX, TLY, BRX, BRY, FNIN):
+    pyautogui.moveTo(10, 10, 0.1)  # move the mouse
+    full_file_name_image = FP + "_step_" + str(FNIN) + "P.jpg"
+    my_screen_shot = pyautogui.screenshot(region=(TLX, TLY, BRX, BRY))
+    my_screen_shot.save(full_file_name_image)
+
+
+# input:
+#   ip_address = string - the IP for the remote desktop connection
+#   window_location = 2 integer - the position of the top left window
+#   window_size = 2 integer - the size of the remote connection
+# what does it do: open remote desktop onnection
+# output: none
+
+def open_remote_desktop(ip_address, window_location=(100, 100), window_size=(600, 400)):
+    # Open the Start menu
+    pyautogui.hotkey('winleft')
+
+    # Type "Remote Desktop Connection" and press Enter
+    pyautogui.write('Remote Desktop Connection')
+    pyautogui.press('enter')
+
+    # Wait for the Remote Desktop Connection window to open
+    time.sleep(5)
+
+    # Type the IP address and press Enter
+    pyautogui.write(ip_address)
+    pyautogui.press('enter')
+
+    # Wait for the remote desktop connection to establish
+    time.sleep(5)
+
+    # Get the Remote Desktop Connection window
+    remote_desktop_window = pygetwindow.getWindowsWithTitle('Remote Desktop Connection')[0]
+
+    # Move and resize the window to not be in full mode
+    remote_desktop_window.moveTo(window_location[0], window_location[1])
+    remote_desktop_window.resizeTo(window_size[0], window_size[1])
+
+    time.sleep(2)
+    pyautogui.write('407Nat')
+    pyautogui.press('enter')
+
+
+# input: none
+# what does it do: go to desktop by simulated the WIN+D
+# output: none
+def alt_Tab():
+    pyautogui.keyDown('altleft')  # press the left arrow key
+    pyautogui.press('tab')  # press the left arrow key
+    pyautogui.keyUp('altleft')  # press the left arrow key
+    pyautogui.keyUp('tab')  # press the left arrow key

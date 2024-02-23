@@ -1,12 +1,13 @@
 # GlobalVariables.py
 import os
+# from time import time
 
 text_here = "Magniv"
 user_selector = 0
 toRec = 0
-last_time = 0
+last_time: float = 0.0
 test_time = 0
-start_time = 0
+start_time: float = 0.0
 PicOption = 0
 Remote_window_location = (100, 100)
 Remote_window_size = (1366, 768)

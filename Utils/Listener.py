@@ -1,6 +1,7 @@
 # Listener.py
 
 import time
+from Utils import GlobalVariables
 
 
 # input:
@@ -10,20 +11,22 @@ import time
 #   press = bool - press= true , release = false
 # what does it do: write the "file" the mouse location + button type + if press or release with running time
 # output: none
-def listener_mouse_click(x, y, button, pressed, start_time, last_time, file_pointer):
+def listener_mouse_click(x, y, button, pressed, file_pointer):
+    total_time = 0.0
     if pressed:
-        total_time = time.time() - start_time
-        gap_time = round(total_time - last_time, 4)
+        total_time = time.time() - GlobalVariables.start_time
+        gap_time = round(total_time - GlobalVariables.last_time, 4)
+        print('Received click on {0}, {1}'.format(x, y))
         file_pointer.writelines(str(gap_time) + ' mouse down at ({0},{1}) with {2} \n'.format(x, y, button))
 
     if not pressed:
-        total_time = time.time() - start_time
-        gap_time = round(total_time - last_time, 4)
+        total_time = time.time() - GlobalVariables.start_time
+        gap_time = round(total_time - GlobalVariables.last_time, 4)
+        print('Received unclick on {0}, {1}'.format(x, y))
         file_pointer.writelines(str(gap_time) + ' mouse up at ({0},{1}) with {2} \n'.format(x, y, button))
 
-    last_time = total_time
+    GlobalVariables.last_time = total_time
 
-    return last_time
 
 
 # input:
@@ -45,13 +48,12 @@ def listener_mouse_scroll(x, y, dx, dy, start_time, last_time, file_pointer):
 # input: key = string - keyboard mouse X operation
 # what does it do: in case ESC was p press change the Global_Setting_Var.terminate to 1 else
 # write the "ATRLogfilePointer" the keyboard click with running time output: none
-def listener_keyboard_press(key, start_time, last_time, file_pointer):
-    total_time = time.time() - start_time
-    gap_time = round(total_time - last_time, 4)
+def listener_keyboard_press(key, file_pointer):
+    total_time = time.time() - GlobalVariables.start_time
+    gap_time = round(total_time - GlobalVariables.last_time, 4)
+    print('Received key {}'.format(key))
     file_pointer.writelines(str(gap_time) + ' keyboard pressed with {0} \n'.format(key))
-    last_time = total_time
-
-    return last_time
+    GlobalVariables.last_time = total_time
 
 
 def close_file(file):

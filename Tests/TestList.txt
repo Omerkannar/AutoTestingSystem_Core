@@ -1,0 +1,3 @@
+# this file contain the list of Test_Name (similar name to the one in test folder). Add space + Test after the test name 
+45 Test
+*********************************************EOF**************************************

@@ -157,7 +157,7 @@ class CreateTest:
         # if not Web_GUI:
         #     user_test_name, user_test_summary, diff = DataWindow.gettestinput()  # gets test name and summary from user
         #     Global_Setting_Var.stop_flag = 0
-        #     #terminte the process befor we start
+        #     #terminte the process before we start
         #     if user_test_name =="terminate":
         #         terminateTheprocess()
         # if GlobalVariables.Web_GUI:

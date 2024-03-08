@@ -28,7 +28,6 @@ def listener_mouse_click(x, y, button, pressed, file_pointer):
     GlobalVariables.last_time = total_time
 
 
-
 # input:
 #   x = integer - mouse X location
 #   y = integer - mouse Y location

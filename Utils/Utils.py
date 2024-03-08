@@ -297,3 +297,22 @@ def alt_Tab():
     pyautogui.press('tab')  # press the left arrow key
     pyautogui.keyUp('altleft')  # press the left arrow key
     pyautogui.keyUp('tab')  # press the left arrow key
+
+
+# input:
+#   FP = string - filename(path for the test name)
+#   TLX = integer - top left x value of the snapping image
+#   TLY = integer - top left Y value of the snapping image
+#   BRX = integer - bottom right  x value of the snapping image
+#   TLX = integer - bottom right y value of the snapping image
+#   FNIN = integer - number of picture in the test
+# what does it do: save the snapshot picture in the proper directory
+# output: none
+def create_random_test_name(filename):
+    TimeNow = ""
+    TimeNow = datetime.datetime.now()
+    testNameRand = "AutoTest_" + TimeNow.strftime("%H_%M_%S")
+    TempData = open(filename, "+w")
+    TempData.writelines(testNameRand)
+    TempData.close()
+    return (testNameRand)

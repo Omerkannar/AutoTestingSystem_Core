@@ -4,6 +4,7 @@
 import time
 
 from . import Listener, GlobalVariables, Utils
+from Utils.DataWindow import DataWindow
 from pynput.keyboard import Key
 
 
@@ -55,6 +56,14 @@ class KeyboardUtils:
             Utils.take_snapshot(stepImageName, GlobalVariables.top_left_x, GlobalVariables.top_left_y,
                                 GlobalVariables.bottom_right_x, GlobalVariables.bottom_right_y, StepImageNumber)
             self.set_file_image_number(self.get_file_image_number() + 1)
+
+            time.sleep(0.1)
+            GlobalVariables.toRec = 0
+            data_window = DataWindow()
+            # stepProcess, stepResult, stepComment, Critic =
+            # data_window.get_input(ATPfile, CommentFile, fileNameImage, test_name, fileNameImage_number)
+            data_window.get_input(self.get_test_log_name(), self.get_test_log_name(), self.get_file_image_path(),
+                                  self.get_test_log_name(), self.get_file_image_number())
 
             # DataWindow.UpdateLog(TestLog, Critic, stepProcess)
             # time.sleep(0.5)  # wait for the user form to close before continue
